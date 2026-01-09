@@ -6,10 +6,10 @@ on:
     branches:
       - main
 
-jobs: #Serviço posso dar o nome que eu quiser, tudo que tiver a nivel de job vai ser uma máquina diferente
+jobs: #Serviço posso dar o nome que eu quiser
   giropops:          #nome
     runs-on: ubuntu-latest         #runner onde isso vai rodar (máquina) - é interessante sempre usar a latest 
-    steps:            # Tô dentro dessa máquina passando comandos para ela.
+    steps:
       - name: Confere versao do ubuntu
         run: cat /etc/os-release
 
