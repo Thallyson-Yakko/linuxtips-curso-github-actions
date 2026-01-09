@@ -5,7 +5,7 @@ on:
   workflow_dispatch #Essa instrução vai fazer com que eu tenha que dar um play para a pipeline rodar
 
 jobs: #Serviço posso dar o nome que eu quiser
-  jobs_1:          #nome
+  job_1:          #nome
     runs-on: ubuntu-latest         #runner onde isso vai rodar (máquina) - é interessante sempre usar a latest 
     steps:
       - name: Confere versao do ubuntu
@@ -20,11 +20,11 @@ jobs: #Serviço posso dar o nome que eu quiser
       - name: Ler conteudo do arquivo
         run: cat mensagem.txt
 
-    job_2: 
-      runs-on: ubuntu-latest
-      needs: job_1
-      steps:
-        - name: Conferir arquivos
-          run: ls -lha
-        - name: Ler conteudo do arquivo
-          run: cat mensagem.txt
+  job_2: 
+    runs-on: ubuntu-latest
+    needs: job_1
+    steps:
+      - name: Conferir arquivos
+        run: ls -lha
+      - name: Ler conteudo do arquivo
+        run: cat mensagem.txt
