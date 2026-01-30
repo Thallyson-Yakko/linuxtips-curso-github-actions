@@ -1,0 +1,46 @@
+name: Segundo Workflow Linuxtips
+
+#Primeiro Tiggrer - toda vez que um commit for feito ele vai iniciar
+on:
+  workflow_dispatch #Essa instrução vai fazer com que eu tenha que dar um play para a pipeline rodar
+
+jobs: #Serviço posso dar o nome que eu quiser
+  job_1:          #nome
+    runs-on: ubuntu-latest         #runner onde isso vai rodar (máquina) - é interessante sempre usar a latest 
+    steps:
+      - name: Confere versao do ubuntu
+        run: cat /etc/os-release
+
+      - name: Exibir uma mensagem
+        run: echo "Estou fazendo o curso de Github Actions da Linuxtips" > /home/ubuntu/mensagem.txtmensagem.txt
+
+      - name: Qualquer outra coisa
+        run: ls -lha
+
+      - name: Ler conteudo do arquivo
+        run: cat mensagem.txt
+# Usando artefados para acessar dados de outro job usa-se o upload // DOC: https://github.com/actions/upload-artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: strigus   #nome da pasta
+          path: /home/ubuntu/mensagem.txt # Local(caminho/path) onde tá o arquivo
+
+
+
+  job_2: 
+    runs-on: ubuntu-latest
+    steps:
+       - name: Conferir arquivos
+         run: ls -lha
+# Usando artefados para acessar dados de outro job - fazendo o download // DOC:https://github.com/actions/download-artifact 
+       - uses: actions/download-artifact@v4
+         with:
+          name: strigus   #nome da pasta
+          path: mensagem.txt # Local(caminho/path) onde tá o arquivo
+
+
+       - name: Ler conteudo do arquivo
+         run: cat strigus/mensagem.txt
+
+       - name: Mudar de pasta e verificar diretorio
+         run: mv strigus/mensagem.txt . & ls -lha strigus
