@@ -22,7 +22,7 @@ jobs: #Serviço posso dar o nome que eu quiser
 # Usando artefados para acessar dados de outro job usa-se o upload // DOC: https://github.com/actions/upload-artifact
       - uses: actions/upload-artifact@v4
         with:
-          name: strigus   #nome da pasta
+          name: strigus-upload   #nome da pasta
           path: ${{ github.workspace }}/mensagem.txt # Local(caminho/path) onde tá o arquivo
 
 
@@ -37,7 +37,7 @@ jobs: #Serviço posso dar o nome que eu quiser
        - uses: actions/download-artifact@v4
          with:
           name: strigus   #nome da pasta
-          path: mensagem.txt # Local(caminho/path) onde tá o arquivo
+          path: strigus # Local(caminho/path) onde tá o arquivo
 
 
        - name: Ler conteudo do arquivo
