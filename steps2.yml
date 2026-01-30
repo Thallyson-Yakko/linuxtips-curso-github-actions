@@ -12,7 +12,7 @@ jobs: #Serviço posso dar o nome que eu quiser
         run: cat /etc/os-release
 
       - name: Exibir uma mensagem
-        run: echo "Estou fazendo o curso de Github Actions da Linuxtips" > /home/ubuntu/mensagem.txtmensagem.txt
+        run: echo "Estou fazendo o curso de Github Actions da Linuxtips" > /home/ubuntu/mensagem.txt
 
       - name: Qualquer outra coisa
         run: ls -lha
