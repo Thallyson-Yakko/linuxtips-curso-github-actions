@@ -1,12 +1,12 @@
-NOME: DESAFIO-GITACTIONS-1
+name: DESAFIO-GITACTIONS-1
 
 on:
   workflow_dispatch: 
     inputs:
       docker_image: 
-      description: Buscar imagem
-      required: true
-      default: ubuntu-latest
+        description: Buscar imagem
+        required: true
+        default: ubuntu-latest
 
 
 jobs:
