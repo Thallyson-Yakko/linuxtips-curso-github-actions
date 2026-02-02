@@ -6,7 +6,7 @@ on:
       docker_image: 
       description: Buscar imagem
       required: true
-      default: ubuntu-latest
+      default: ubuntu:latest
 
 
 jobs:
