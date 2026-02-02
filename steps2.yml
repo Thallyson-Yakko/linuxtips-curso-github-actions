@@ -45,3 +45,14 @@ jobs: #Serviço posso dar o nome que eu quiser
 
        - name: Mudar de pasta e verificar diretorio
          run: mv strigus/mensagem.txt . & ls -lha strigus
+
+
+# Links das DOCs:
+#DOWNLOAD ARTIFACT: https://github.com/actions/download-artifact
+#
+#UPLOAD ARTIFACT: https://github.com/actions/upload-artifact 
+#
+#RUNNER IMAGES: https://github.com/actions/runner-images
+#
+#
+#
