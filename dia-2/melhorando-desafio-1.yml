@@ -34,6 +34,7 @@ jobs:
         id: docker-scout
         uses: docker/scout-action@v1
         with:
+          command: cves,recommendations,compare
           image:  ${{github.event.inputs.docker_image}}
           only-severities: critical, high
 
