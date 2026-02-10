@@ -26,8 +26,8 @@ jobs:
 
       - name: Docker Image
         run: |
-          IMAGE_NAME=$(echo"${{github.event.inputs.docker_image}}" | cut -d ':' -f 1)
-          docker images | grep ${{github.event.inputs.docker_image}}
+          IMAGE_NAME=$(echo "${{github.event.inputs.docker_image}}" | cut -d ':' -f 1)
+          docker images | grep ${{github.event.inputs.docker_image}} || true
 
     
       - name: Docker Scout
