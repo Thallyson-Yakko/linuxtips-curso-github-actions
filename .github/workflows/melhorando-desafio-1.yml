@@ -26,13 +26,15 @@ jobs:
 
       - name: Docker Image
         run: |
-          docker images
+          IMAGE_NAME=$(echo "${{github.event.inputs.docker_image}}" | cut -d ':' -f 1)
+          docker images | grep ${{github.event.inputs.docker_image}} || true
 
     
       - name: Docker Scout
         id: docker-scout
         uses: docker/scout-action@v1
         with:
+          command: cves,recommendations,compare
           image:  ${{github.event.inputs.docker_image}}
           only-severities: critical, high
 
